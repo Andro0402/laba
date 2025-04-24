@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drive Dynamics - Автомобильное сообщество</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <a href="index.html">
+                        <span class="logo-text">Drive Dynamics</span>
+                        <span class="logo-icon"><i class="fas fa-car"></i></span>
+                    </a>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="#" class="active">Главная</a></li>
+                        <li><a href="#">Сообщества</a></li>
+                        <li><a href="#">Мероприятия</a></li>
+                        <li><a href="#">Магазин</a></li>
+                        <li><a href="#">О нас</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <button id="login-btn" class="btn btn-outline">Войти</button>
+                    <button id="register-btn" class="btn btn-primary">Регистрация</button>
+                </div>
+                <div class="user-profile hidden">
+                    <img src="Images/profile.png" alt="Profile" class="profile-img">
+                    <span class="username">Иван Иванов</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="main-content">
+                <div class="sidebar">
+                    <div class="sidebar-section">
+                        <h3>Мои сообщества</h3>
+                        <ul class="communities-list">
+                            <li>Нет сообществ</li>
+                            <li><a href="#" class="find-communities"><i class="fas fa-plus"></i> Найти сообщества</a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-section events">
+                        <h3>Предстоящие события</h3>
+                        <ul>
+                            <li>Нет предстоящих мероприятий</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <div class="create-post">
+                        <div class="post-header">
+                            <img src="Images/profile.png" alt="User" class="user-avatar">
+                            <input type="text" placeholder="Поделитесь своими мыслями или новостями..." class="post-input">
+                        </div>
+                        <div class="post-actions">
+                            <button class="action-btn"><i class="fas fa-image"></i> Фото</button>
+                            <button class="action-btn"><i class="fas fa-video"></i> Видео</button>
+                            <button class="action-btn"><i class="fas fa-map-marker-alt"></i> Место</button>
+                            <button class="post-submit">Опубликовать</button>
+                        </div>
+                    </div>
+
+                    <div class="posts">
+                        <!-- Посты будут загружаться динамически -->
+                    </div>
+                </div>
+
+                <div class="right-sidebar">
+                    <div class="sidebar-section">
+                        <h3>Рекомендации</h3>
+                        <div class="recommended-user">
+                            <img src="Images/profile.png" alt="User" class="user-avatar">
+                            <div class="user-info">
+                                <span class="username">Дмитрий Власов</span>
+                                <span class="user-desc">Автоблогер, специалист по тюнингу</span>
+                            </div>
+                            <button class="follow-btn">Подписаться</button>
+                        </div>
+                        <div class="recommended-user">
+                            <img src="Images/avto.jpg" alt="User" class="user-avatar">
+                            <div class="user-info">
+                                <span class="username">Автосалон Премиум</span>
+                                <span class="user-desc">Официальный дилер BMW</span>
+                            </div>
+                            <button class="follow-btn">Подписаться</button>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3>Популярные теги</h3>
+                        <div class="tags">
+                            <a href="#" class="tag">#тюнинг</a>
+                            <a href="#" class="tag">#bmw</a>
+                            <a href="#" class="tag">#мероприятия</a>
+                            <a href="#" class="tag">#советы</a>
+                            <a href="#" class="tag">#продажа</a>
+                            <a href="#" class="tag">#обзор</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Модальные окна -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Вход в Drive Dynamics</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" placeholder="Введите ваш email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Пароль</label>
+                    <input type="password" id="login-password" placeholder="Введите ваш пароль" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Войти</button>
+                <div class="form-footer">
+                    <a href="#" id="forgot-password">Забыли пароль?</a>
+                    <p>Нет аккаунта? <a href="#" id="show-register">Зарегистрироваться</a></p>
+                </div>
+            </form>
+            <div class="social-login">
+                <p>Или войдите через</p>
+                <div class="social-buttons">
+                    <button class="social-btn google"><i class="fab fa-google"></i> Google</button>
+                    <button class="social-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+                    <button class="social-btn vk"><i class="fab fa-vk"></i> VK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="register-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Регистрация в Drive Dynamics</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-name">Имя</label>
+                    <input type="text" id="register-name" placeholder="Введите ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" placeholder="Введите ваш email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Пароль</label>
+                    <input type="password" id="register-password" placeholder="Придумайте пароль" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm">Подтверждение пароля</label>
+                    <input type="password" id="register-confirm" placeholder="Повторите пароль" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-car">Ваш автомобиль (необязательно)</label>
+                    <input type="text" id="register-car" placeholder="Марка и модель">
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="register-terms" required>
+                    <label for="register-terms">Я принимаю <a href="#">условия использования</a> и <a href="#">политику конфиденциальности</a></label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Зарегистрироваться</button>
+                <div class="form-footer">
+                    <p>Уже есть аккаунт? <a href="#" id="show-login">Войти</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">
+                    <a href="index.html">Drive Dynamics</a>
+                    <p>Автомобильное сообщество для энтузиастов</p>
+                </div>
+                <div class="footer-links">
+                    <div class="links-column">
+                        <h4>Сообщество</h4>
+                        <ul>
+                            <li><a href="#">Главная</a></li>
+                            <li><a href="#">Сообщества</a></li>
+                            <li><a href="#">Мероприятия</a></li>
+                            <li><a href="#">Блоги</a></li>
+                        </ul>
+                    </div>
+                    <div class="links-column">
+                        <h4>Помощь</h4>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Правила</a></li>
+                            <li><a href="#">Поддержка</a></li>
+                            <li><a href="#">Контакты</a></li>
+                        </ul>
+                    </div>
+                    <div class="links-column">
+                        <h4>Компания</h4>
+                        <ul>
+                            <li><a href="#">О нас</a></li>
+                            <li><a href="#">Вакансии</a></li>
+                            <li><a href="#">Реклама</a></li>
+                            <li><a href="#">Партнеры</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h4>Мы в соцсетях</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Drive Dynamics. Все права защищены.</p>
+                <div class="footer-legal">
+                    <a href="#">Условия использования</a>
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Cookie</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
